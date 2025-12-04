@@ -6,11 +6,11 @@ pipeline {
     }
 
     environment {
-        DOCKER_HUB_CREDS = credentials('docker-creds')
+        DOCKER_HUB_CREDS = credentials('dockerhub-credentials')
         AWS_REGION = "us-east-1"
         EKS_CLUSTER = "kastro-eks"
         K8S_NAMESPACE = "blue-green-demo"
-        DOCKER_IMAGE = "kastrov/blue-green-demo:${params.DEPLOY_ENV}-${BUILD_NUMBER}"
+        DOCKER_IMAGE = "pradipshinde/blue-green-demo:${params.DEPLOY_ENV}-${BUILD_NUMBER}"
         GUNICORN_TIMEOUT = "120"
         HEALTH_CHECK_TIMEOUT = "10" // Increased from 5
     }
